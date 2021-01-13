@@ -30,8 +30,8 @@ sandbox.run({
     '_': 'underscore'   // require underscore the traditional way
   }
 }, function callback (err, result) {
-  // result is synchronous "return" of the last line in your untrusted code, here "a = !true", so false
-  console.log('Result is:', result); // prints "Result is: false"
+  // result is synchronous "return" of the last line in your untrusted code, here "a = !true", so false, plus the sandbox context holding the variables
+  console.log('Result is:', result); // prints "Result is: { result: false, sandbox: { foo: 'bar', key: 'value' } }"
   sandbox.kill(); // don't forget to kill the sandbox, if you don't need it anymore
 });
 
